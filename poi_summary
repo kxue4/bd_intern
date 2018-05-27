@@ -8,19 +8,29 @@ import csv
 
 
 def poi_summary(file_name):
+    """
+    Read and split text file line by line.
+    Store the second object(POI) as key, the third object(UV) as value in a dictionary to calculate the total UV of each POI
+    Sort the dictionary by value and convert it to list
+    :param file_name: input the file name
+    :return: a sorted result list
+    """
     file = open(file_name)
-
     result_dic = {}
 
     for lines in file:
         temp_list = lines.split('\t')
         result_dic[temp_list[1]] = int(temp_list[2]) + result_dic.get(temp_list[1], 0)
 
-    result_lst = sorted(result_dic.items(), key=lambda x: x[1], reverse=True)
-    return result_lst
+    return sorted(result_dic.items(), key=lambda x: x[1], reverse=True)
 
 
 def csv_file_generator(result_lst):
+    """
+    Write the result list to a csv file.
+    :param result_lst: list created by poi_summary() function
+    :return: No return, a csv file has been generatred
+    """
     csvfile = open(file_name + '.csv', 'w')
     writer = csv.writer(csvfile)
     writer.writerow(['TAG', 'UV总数'])
