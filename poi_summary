@@ -1,0 +1,36 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+# @Time    : 2018/5/25 16:48
+# @Author  : Kaiwen Xue
+# @File    : poi_summary.py
+# @Software: PyCharm
+import csv
+
+
+def poi_summary(file_name):
+    file = open(file_name)
+
+    result_dic = {}
+
+    for lines in file:
+        temp_list = lines.split('\t')
+        result_dic[temp_list[1]] = int(temp_list[2]) + result_dic.get(temp_list[1], 0)
+
+    result_lst = sorted(result_dic.items(), key=lambda x: x[1], reverse=True)
+    return result_lst
+
+
+def csv_file_generator(result_lst):
+    csvfile = open(file_name + '.csv', 'w')
+    writer = csv.writer(csvfile)
+    writer.writerow(['TAG', 'UV总数'])
+
+    for items in result_lst:
+        writer.writerow([items[0], items[1]])
+
+    csvfile.close()
+
+
+if __name__ == '__main__':
+    file_name = input('Input the file name: ')
+    csv_file_generator(poi_summary(file_name + '.txt'))
