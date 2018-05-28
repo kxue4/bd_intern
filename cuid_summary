@@ -1,0 +1,73 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+# @Time    : 2018/5/28 11:24
+# @Author  : Kaiwen Xue
+# @File    : cuid_summary.py
+# @Software: PyCharm
+
+
+def cuid_summary(file_name):
+    """
+    Split a txt file into three files by relationship. Use set to avoid duplicated data.
+    :param file_name: txt file name
+    :return: three txt file and the total number of duplicated data of each file.
+    """
+    file = open(file_name)
+    shejiao_lst = list()
+    shejiao_set = set()
+    jiating_lst = list()
+    jiating_set = set()
+    tongshi_lst = list()
+    tongshi_set = set()
+
+    for lines in file:
+        temp_list = lines.split('\t')
+        jiating = temp_list[1]
+        tongshi = temp_list[2]
+        shejiao = temp_list[3]
+        if jiating != 'None':
+            jiating = jiating[1:]
+            jiating = jiating[:-1]
+            jiating = jiating.split(', ')
+            for cuid in jiating:
+                jiating_lst.append(cuid)
+                jiating_set.add(cuid)
+
+        if tongshi != 'None':
+            tongshi = tongshi[1:]
+            tongshi = tongshi[:-1]
+            tongshi = tongshi.split(', ')
+            for cuid in tongshi:
+                tongshi_lst.append(cuid)
+                tongshi_set.add(cuid)
+
+        if shejiao != 'None':
+            shejiao = shejiao[1:]
+            shejiao = shejiao[:-1]
+            shejiao = shejiao.split(', ')
+            for cuid in shejiao:
+                shejiao_lst.append(cuid)
+                shejiao_set.add(cuid)
+
+    f = open(file_name[:-4] + '_' + 'jiating.txt', 'w')
+    for data in jiating_set:
+        f.write(data + '\n')
+    f.close()
+    print(file_name[:-4], len(jiating_lst), len(jiating_set), len(jiating_lst) - len(jiating_set))
+
+    f = open(file_name[:-4] + '_' + 'tongshi.txt', 'w')
+    for data in tongshi_set:
+        f.write(data + '\n')
+    f.close()
+    print(file_name[:-4], len(tongshi_lst), len(tongshi_set), len(tongshi_lst) - len(tongshi_set))
+
+    f = open(file_name[:-4] + '_' + 'shejiao.txt', 'w')
+    for data in shejiao_set:
+        f.write(data + '\n')
+    f.close()
+    print(file_name[:-4], len(shejiao_lst), len(shejiao_set), len(shejiao_lst) - len(shejiao_set))
+
+
+if __name__ == '__main__':
+    file_name = input('Input file name: ')
+    cuid_summary(file_name + '.txt')
