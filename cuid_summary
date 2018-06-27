@@ -4,6 +4,7 @@
 # @Author  : Kaiwen Xue
 # @File    : cuid_summary.py
 # @Software: PyCharm
+from time import time
 
 
 def cuid_summary(file_name):
@@ -69,5 +70,12 @@ def cuid_summary(file_name):
 
 
 if __name__ == '__main__':
+    print('==============================Script running==============================\n')
+    start = time()
+
     file_name = input('Input file name: ')
     cuid_summary(file_name + '.txt')
+
+    ends = time()
+    print('\n\n\t\t\t\t\t\t\tRunning time:', str(round(ends - start, 2)) + 's')
+    print('\n==================================Ends==================================\n')

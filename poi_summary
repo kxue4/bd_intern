@@ -5,6 +5,7 @@
 # @File    : poi_summary.py
 # @Software: PyCharm
 import csv
+from time import time
 
 
 def poi_summary(file_name):
@@ -42,5 +43,12 @@ def csv_file_generator(result_lst):
 
 
 if __name__ == '__main__':
+    print('==============================Script running==============================\n')
+    start = time()
+
     file_name = input('Input the file name: ')
     csv_file_generator(poi_summary(file_name + '.txt'))
+
+    ends = time()
+    print('\n\n\t\t\t\t\t\t\tRunning time:', str(round(ends - start, 2)) + 's')
+    print('\n==================================Ends==================================\n')

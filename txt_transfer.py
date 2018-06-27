@@ -4,7 +4,7 @@
 # @Author  : Kaiwen Xue
 # @File    : txt_transfer.py
 # @Software: PyCharm
-import time
+from time import time
 
 
 def txt_transfer(file, new_file):
@@ -26,8 +26,10 @@ if __name__ == '__main__':
     file = 'test'
     new_file = 'result'
     print('==============================Script running==============================\n')
-    start = time.time()
+    start = time()
+
     txt_transfer(file, new_file)
-    ends = time.time()
+
+    ends = time()
     print('\n\n\t\t\t\t\t\t\tRunning time:', str(round(ends - start, 2)) + 's')
     print('\n==================================Ends==================================\n')

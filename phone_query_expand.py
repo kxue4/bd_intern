@@ -4,6 +4,7 @@
 # @Author  : Kaiwen Xue
 # @File    : phone_query_expand.py
 # @Software: PyCharm
+from time import time
 
 
 def phone_query_expand():
@@ -40,9 +41,15 @@ def phone_query_expand():
 
 
 if __name__ == '__main__':
-    lists = phone_query_expand()
+    print('==============================Script running==============================\n')
+    start = time()
 
+    lists = phone_query_expand()
     print(len(lists))
 
     for query in lists:
         print(query)
+
+    ends = time()
+    print('\n\n\t\t\t\t\t\t\tRunning time:', str(round(ends - start, 2)) + 's')
+    print('\n==================================Ends==================================\n')
