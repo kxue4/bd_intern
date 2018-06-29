@@ -1,0 +1,4 @@
+val feed=spark.read.parquet("url")
+feed.dropDuplicates(Seq("news_category")).select("news_category").show(1000,false)
+feed.filter("news_category='综合' and new_category='other'").count()
+feed.first
