@@ -63,3 +63,57 @@ import re
 #         aa+=1
 #
 # print(count,aa)
+
+
+
+
+
+
+
+
+import re
+import random
+# all = open('/Users/Kevin/Downloads/all_444.txt')
+# lst = open('/Users/Kevin/Downloads/lst.txt', 'w')
+# wr = open('/Users/Kevin/Downloads/wr.txt', 'w')
+#
+# lost = 0
+# wrong = 0
+#
+# for lines in all:
+#     query = re.findall(r'"query": "(.+?)", "sign', lines)
+#
+#     if re.findall(r'0, "value": "(.+?)", "key": "series"', lines):
+#         series = re.findall(r'0, "value": "(.+?)", "key": "series"', lines)
+#         wr.writelines(query[0]+'\t'+str(series)+'\n')
+#         wrong += 1
+#     else:
+#         lst.writelines(query[0]+'\n')
+#         lost += 1
+#
+# print(wrong, lost)
+
+# lost 1349151
+# wrong 565583
+
+# wrong 156
+# sum 556
+# need 444
+
+# ll = open('/Users/Kevin/Downloads/lst.txt')
+# # badcase = open('/Users/Kevin/Downloads/lost_85.txt')
+#
+# lost = ll.readlines()
+#
+# pl = open('/Users/Kevin/Downloads/all_444.txt')
+#
+# a = 0
+# for lines in pl:
+#     query = re.findall(r'"query": "(.+?)", "sign', lines)
+#     for qs in lost:
+#         temp = qs.strip()
+#         if query[0] == temp:
+#             print(lines.strip())
+#             a += 1
+#
+# print(a)
