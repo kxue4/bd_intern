@@ -7,7 +7,7 @@
 import pymysql
 import re
 
-db = pymysql.connect(host="localhost", user="root", password="****************", db="dump", port=3306)
+db = pymysql.connect(host="localhost", user="root", password="12345678", db="dump", port=3306)
 cursor = db.cursor()
 
 amz = open('/Users/Kevin/Downloads/Amazon83K_25May_2016.txt')
