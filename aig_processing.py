@@ -6,36 +6,37 @@
 # @Software: PyCharm
 import re
 
-bad = open('/Users/Kevin/Desktop/kg_output_result/kg_badcase_167.txt')
-path = '/Users/Kevin/Desktop/aig/'
+# bad = open('/Users/Kevin/Desktop/kg_output_result/kg_badcase_167.txt')
+# path = '/Users/Kevin/Desktop/aig/'
+#
+# aig_c = open(path + 'aig_c.txt')
+# aig_p = open(path + 'aig_p.txt')
+# aig_e = open(path + 'aig_e.txt')
+#
+# badcase = bad.readlines()
+# bad = set()
+# all = set()
+#
+# a = 0
+# b = 0
+# for lines in aig_p:
+#     all.add(lines.strip())
+#     query = lines.split('\t')[0]
+#     for bds in badcase:
+#         temp = bds.split('\t')[0]
+#         badone = temp.split('|')[1]
+#         if query == badone:
+#             bad.add(lines.strip())
+#
+# good = all-bad
+#
+# for lines in good:
+#     print(lines)
+#
+# print(len(good))
 
-aig_c = open(path + 'aig_c.txt')
-aig_p = open(path + 'aig_p.txt')
-aig_e = open(path + 'aig_e.txt')
-
-badcase = bad.readlines()
-bad = set()
-all = set()
-
-a = 0
-b = 0
-for lines in aig_p:
-    all.add(lines.strip())
-    query = lines.split('\t')[0]
-    for bds in badcase:
-        temp = bds.split('\t')[0]
-        badone = temp.split('|')[1]
-        if query == badone:
-            bad.add(lines.strip())
-
-good = all-bad
-
-for lines in good:
-    print(lines)
-
-print(len(good))
-
-
+# path = '/Users/Kevin/Desktop/aig/'
+#
 # aig_c_n = open(path +'aig_c_n.txt')
 # aig_c_v = open(path + 'aig_c_v.txt')
 # aig_p_n = open(path + 'aig_p_n.txt')
@@ -71,3 +72,4 @@ print(len(good))
 #     p_s.writelines(query + '\t' + str(desc) + '\t' + str(mention) + '\n')
 #
 # print('Finished!')
+
