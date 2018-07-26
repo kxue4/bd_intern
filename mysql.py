@@ -60,5 +60,6 @@ for lines in fl:
     sql = "insert into amazon(email, password, full_name, state, city, street, zipcode, phone, added_on, last_attempted_at, last_good_proxy_id, user_agent) values('%s','%s','%s','%s','%s','%s','%d','%s','%s','%s','%s','%s')" % (s_email, s_password, s_full_name, s_state, s_city, s_street, s_zipcode, s_phone, s_added_on, s_last_attempted_at, s_last_good_proxy_id, s_user_agent)
     cursor.execute(sql)
 
+
 print('Finished!')
 db.close()
