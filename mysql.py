@@ -7,10 +7,11 @@
 import pymysql
 import re
 
-db = pymysql.connect(host="localhost", user="root", password="12345678", db="dump", port=3306)
-cursor = db.cursor()
+# db = pymysql.connect(host="localhost", user="root", password="12345678", db="dump", port=3306)
+# cursor = db.cursor()
 
 amz = open('/Users/Kevin/Downloads/Amazon83K_25May_2016.txt')
+amazon = open('/Users/Kevin/Downloads/Amazon.txt', 'w')
 
 fl = amz.readlines()
 
@@ -60,9 +61,10 @@ for lines in fl:
     except IndexError:
         s_last_good_proxy_id = 'NULL'
 
-    sql = """insert into amazon values('%s','%s','%s','%s','%s','%s','%d','%s','%s','%s','%s','%s')""" % (s_email, s_password, s_full_name, s_state, s_city, s_street, s_zipcode, s_phone, s_added_on, s_last_attempted_at, s_last_good_proxy_id, s_user_agent)
-    cursor.execute(sql)
+    # sql = """insert into amazon values('%s','%s','%s','%s','%s','%s','%d','%s','%s','%s','%s','%s');""" % (s_email, s_password, s_full_name, s_state, s_city, s_street, s_zipcode, s_phone, s_added_on, s_last_attempted_at, s_last_good_proxy_id, s_user_agent)
+    # cursor.execute(sql)
+    amazon.writelines(s_email + '\t' + s_password + '\t' + s_full_name + '\t' + s_state + '\t' + s_city + '\t' + s_street + '\t' + str(s_zipcode) + '\t' + s_phone + '\t' + s_added_on + '\t' + s_last_attempted_at + '\t' + s_last_good_proxy_id + '\t' + s_user_agent + '\n')
 
 
 print('Finished!')
-db.close()
+# db.close()

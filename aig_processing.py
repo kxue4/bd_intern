@@ -37,7 +37,7 @@ print(len(good))
 
 path = '/Users/Kevin/Desktop/aig/'
 
-aig_c_n = open(path +'aig_c_n.txt')
+aig_c_n = open(path + 'aig_c_n.txt')
 aig_c_v = open(path + 'aig_c_v.txt')
 aig_p_n = open(path + 'aig_p_n.txt')
 aig_p_s = open(path + 'aig_p_s.txt')
