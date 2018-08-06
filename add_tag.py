@@ -20,7 +20,7 @@ for lines in file:
     key = 0
     for i in range(0, lth):
 
-        if i %2 == 0:
+        if i % 2 == 0:
             key = tags[i]
 
         else:

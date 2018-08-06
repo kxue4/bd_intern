@@ -35,6 +35,7 @@ for lines in good:
 
 print(len(good))
 
+
 path = '/Users/Kevin/Desktop/aig/'
 
 aig_c_n = open(path + 'aig_c_n.txt')
