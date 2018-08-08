@@ -6,7 +6,6 @@
 # @Software: PyCharm
 from __future__ import print_function, unicode_literals
 from bosonnlp import BosonNLP
-from prettytable import PrettyTable
 import requests
 
 
@@ -111,6 +110,17 @@ def classify(news):
     return num2cn[result]
 
 
+def summary(content, title):
+    """
+    Generate summary of news
+    :param content: content of news
+    :param title: title of news
+    :return: summary
+    """
+    result = nlp.summary(title, content, 0.3)  # parameter < 1: percentage of content, > 1: the total character of summary.
+    return result
+
+
 if __name__ == '__main__':
     intent = input('Please input your intent: ')
 
@@ -167,3 +177,12 @@ if __name__ == '__main__':
         print('')
         print(result)
         print('\nClassify limit remaining', limits)
+
+    elif intent == 'summary':
+        content = input('Please input the content: ')
+        title = input('Please input the title(or blank): ')
+        result = summary(content, title)
+        limits = check_limits()['limits']['summary']['count-limit-remaining']
+        print('')
+        print(result)
+        print('\nSumary limit remaining', limits)
