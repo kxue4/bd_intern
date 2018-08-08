@@ -105,7 +105,7 @@ def classify(news):
     """
     Classify news
     :param news: input news title
-    :return:
+    :return: category in chinese
     """
     result = nlp.classify(news)[0]
     return num2cn[result]
